@@ -1,4 +1,4 @@
-// const path = require('path');
+const path = require('path');
 const express = require('express');
 const app = express();
 const http = require('http');
@@ -7,12 +7,12 @@ const port = process.env.port || 3000
 const { Server } = require("socket.io")
 app.use(cors())
 
-// app.use(express.static(path.join(__dirname, "client", "build")));
-// const publicPath = path.join(__dirname, '..', 'public');
-// app.use(express.static(publicPath));
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(publicPath, 'index.html'));
-//  });
+app.use(express.static(path.join(__dirname, "client", "build")));
+const publicPath = path.join(__dirname, '..', 'public');
+app.use(express.static(publicPath));
+app.get('*', (req, res) => {
+    res.sendFile(path.join(publicPath, 'index.html'));
+ });
 
 
 const server = http.createServer(app);
