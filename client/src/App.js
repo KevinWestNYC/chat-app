@@ -3,7 +3,7 @@ import io from "socket.io-client";
 import React, { useState } from "react";
 import Chat from './Chat'
 
-const port = process.env.port || 3000
+const port = process.env.PORT|| 3000
 const socket = io.connect(`http://localhost:${port}`);
 
 function App() {
